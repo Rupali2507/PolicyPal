@@ -11,17 +11,18 @@ Unlock the full potential of your policy documents! **PolicyPal** lets you effor
 
 ## 🛠️ Architecture Overview
 
-| Component          | Description                                                                                      |
-|--------------------|--------------------------------------------------------------------------------------------------|
-| 🎨 **Frontend**    | Elegant React UI for authentication, uploads, and Q&A.                                           |
-| 🚪 **Backend**     | Node.js + Express server: Orchestrates API calls, authentication, and database management.       |
-| 🧠 **ML Service**  | Python (FastAPI, LangChain): Handles the AI magic using local LLMs via Ollama.                   |
+| Component         | Description                                                                                |
+| ----------------- | ------------------------------------------------------------------------------------------ |
+| 🎨 **Frontend**   | Elegant React UI for authentication, uploads, and Q&A.                                     |
+| 🚪 **Backend**    | Node.js + Express server: Orchestrates API calls, authentication, and database management. |
+| 🧠 **ML Service** | Python (FastAPI, LangChain): Handles the AI magic using local LLMs via Ollama.             |
 
 **Data Flow:** React Client ➡️ Node.js Server ➡️ Python ML Service
 
 ## 🗝️ Prerequisites
 
 Make sure your toolkit is ready:
+
 - **Node.js** v18.0+ ([Download](https://nodejs.org/))
 - **Python** v3.10+ ([Download](https://python.org/))
 - **Ollama** (for local LLMs) ([Download](https://ollama.com/))
@@ -29,8 +30,9 @@ Make sure your toolkit is ready:
 ## 🚦 Quickstart Guide
 
 **Clone and Prepare:**
+
 ```bash
-git clone 
+git clone
 cd PolicyPal
 ```
 
@@ -56,13 +58,15 @@ ollama pull gemma:2b
 cd ../Server
 npm install
 ```
+
 **Configure Environment:**
+
 - Copy `.env.example` ➡️ `.env`
 - Fill in:
-    - `MONGODB_URI=mongodb+srv://:@cluster.mongodb.net/`
-    - `JWT_SECRET=your_super_secret_key_for_jwt`
-    - `PORT=5000`
-    - `NODE_ENV=development`
+  - `MONGODB_URI=mongodb+srv://:@cluster.mongodb.net/`
+  - `JWT_SECRET=your_super_secret_key_for_jwt`
+  - `PORT=5000`
+  - `NODE_ENV=development`
 
 ### 3️⃣ React Frontend
 
@@ -75,8 +79,17 @@ npm install
 
 Fire up each service **in its own terminal** for smooth operation!
 
+**Terminal 1: ML Service**
+
+```bash
+cd doc_qa_backend
+# Activate your environment!
+uvicorn app.main:app --reload
+# → Now running at: http://localhost:8000
+```
 
 **Terminal 2: Node.js Backend**
+
 ```bash
 cd Server
 npm start
@@ -84,6 +97,7 @@ npm start
 ```
 
 **Terminal 3: React Frontend**
+
 ```bash
 cd Client
 npm start
@@ -108,4 +122,4 @@ npm start
 From insurance claim reviews to legal audits, **PolicyPal** makes understanding your policies effortless, accurate, and even a bit fun.  
 **Cut through the jargon. Get to your answer. Be policy-smart—with PolicyPal!**
 
-*Unleash the power of AI on your documents—because you deserve answers as classy and sharp as you are.*
+_Unleash the power of AI on your documents—because you deserve answers as classy and sharp as you are._

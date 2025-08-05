@@ -1,5 +1,7 @@
 from fastapi import APIRouter, UploadFile, File, Form, HTTPException
-from .core.logic import rag_processor, FinalResponse 
+import tempfile
+import os
+from .core.logic import rag_processor, FinalResponse
 
 router = APIRouter()
 
@@ -8,28 +10,25 @@ async def process_document_and_get_answer(
     query: str = Form(...),
     file: UploadFile = File(...)
 ):
-    """Accepts a PDF document and a text query, returning a structured JSON answer."""
-    
-    # Add logging to see what's happening
-    print(f"📄 Received file: {file.filename} ({file.content_type})")
-    print(f"❓ Query: {query}")
-    
     if file.content_type != "application/pdf":
         raise HTTPException(status_code=400, detail="Only PDF files are supported.")
 
     try:
-        print("🔄 Reading file bytes...")
         file_bytes = await file.read()
-        print(f"✅ File read successfully. Size: {len(file_bytes)} bytes")
-        
-        print("🧠 Processing with RAG processor...")
-        result = rag_processor.process_document_and_query(file_bytes=file_bytes, query=query)
-        print("✅ RAG processing complete")
-        
-        print("📤 Converting result to dict...")
+
+        fd, temp_path = tempfile.mkstemp(suffix=".pdf")
+        os.close(fd)
+
+        try:
+            with open(temp_path, "wb") as f:
+                f.write(file_bytes)
+
+            result = rag_processor.process_document_and_query(file_path=temp_path, query=query)
+        finally:
+            if os.path.exists(temp_path):
+                os.unlink(temp_path)
+
         response_data = result.dict()
-        print("✅ Response ready to send")
-        
         return response_data
 
     except Exception as e:
