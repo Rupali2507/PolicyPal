@@ -1,7 +1,5 @@
-fastapi
-uvicorn
-PyPDF2
-sentence-transformers
-transformers
 torch
-faiss-cpu
+transformers
+PyPDF2
+flask
+numpy
