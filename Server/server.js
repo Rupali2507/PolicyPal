@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
 // --- API Routes ---
 app.use("/api/chat", chatRoutes);
 app.use("/api/user", userRoutes);
-app.use("/api/documents", documentRoutes); // ADD THIS LINE
+app.use("/api/documents", documentRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

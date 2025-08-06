@@ -68,7 +68,7 @@
   padding: 15px 20px;
   border-radius: 8px;
   border: 0;
-  background-color: var(--accent-color);
+  background-color: #145314;
   color: white;
   font-size: 16px;
   font-weight: 600;
@@ -77,7 +77,7 @@
 }
 
 .doc-qa-form button:hover {
-  background-color: var(--accent-hover-color);
+  background-color: rgb(29, 50, 27);
   transform: translateY(-2px);
 }
 
@@ -99,15 +99,21 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .result-display h3 {
-    font-family: var(--font-serif);
-    margin-bottom: 15px;
-    font-size: 20px;
-    color: var(--primary-text-color);
+  font-family: var(--font-serif);
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: var(--primary-text-color);
 }
 
 .result-display .narrative {
@@ -118,33 +124,33 @@
 }
 
 .justification-section {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border-color);
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
 }
 
 .justification-section h4 {
-    font-weight: 600;
-    font-size: 14px;
-    color: var(--secondary-text-color);
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--secondary-text-color);
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .justification-section ul {
-    list-style-type: none;
-    padding-left: 0;
+  list-style-type: none;
+  padding-left: 0;
 }
 
 .justification-section li {
-    background-color: var(--background-color);
-    padding: 10px 15px;
-    border-radius: 6px;
-    margin-bottom: 8px;
-    font-size: 15px;
-    line-height: 1.5;
-    border: 1px solid var(--border-color);
+  background-color: var(--background-color);
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-size: 15px;
+  line-height: 1.5;
+  border: 1px solid var(--border-color);
 }
 
 .error-message {

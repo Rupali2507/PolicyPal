@@ -7,7 +7,10 @@ const Main = () => {
     <div className="main">
       <div className="nav">
         <p>PolicyPal</p>
-        <img src="https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Dog-512.png" alt="User Avatar" />
+        <img
+          src="https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Dog-512.png"
+          alt="User Avatar"
+        />
       </div>
 
       {/* This container will center everything */}
